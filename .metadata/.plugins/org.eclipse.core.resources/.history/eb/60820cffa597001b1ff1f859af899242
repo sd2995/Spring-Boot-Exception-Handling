@@ -1,0 +1,65 @@
+package com.sd.model;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = "student")
+public class Student {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long id;
+
+	@Column(name = "name")
+	private String name;
+
+	@Column(name = "college_name")
+	private String collegeName;
+
+	@Column(name = "published")
+	private boolean published;
+
+	public Student() {
+
+	}
+
+	public Student(String title, String description, boolean published) {
+		this.name = title;
+		this.collegeName = description;
+		this.published = published;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public String getTitle() {
+		return name;
+	}
+
+	public void setTitle(String title) {
+		this.name = title;
+	}
+
+	public String getDescription() {
+		return collegeName;
+	}
+
+	public void setDescription(String description) {
+		this.collegeName = description;
+	}
+
+	public boolean isPublished() {
+		return published;
+	}
+
+	public void setPublished(boolean isPublished) {
+		this.published = isPublished;
+	}
+
+	@Override
+	public String toString() {
+		return "Tutorial [id=" + id + ", title=" + name + ", desc=" + collegeName + ", published=" + published + "]";
+	}
+
+}
